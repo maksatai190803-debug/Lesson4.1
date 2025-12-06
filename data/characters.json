@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Lee Min Ho",
+    "photo": "../images/Lee.jpg",
+    "info": "Актер Исполнитель"
+  },
+  {
+    "name": "Park Shin Hye",
+    "photo": "../images/Park.jpg",
+    "info": "Актриса"
+  },
+  {
+    "name": "Park Hyung Shik",
+    "photo": "../images/Park2.jpg",
+    "info": "Актер"
+  },
+  {
+    "name": "Kim Ji Won",
+    "photo": "../images/Kim.jpg",
+    "info": "Актер"
+  }
+]

@@ -105,3 +105,49 @@ resetBtn.addEventListener("click", resetTimer);
 
 
 updateUI();
+
+
+const charactersContainer = document.querySelector(".characters-list");
+
+const xhrCharacters = new XMLHttpRequest();
+xhrCharacters.open("GET", "../data/characters.json");
+xhrCharacters.setRequestHeader("Content-Type", "application/json");
+xhrCharacters.send();
+
+xhrCharacters.onload = () => {
+    if (xhrCharacters.status >= 200 && xhrCharacters.status < 300) {
+        const characters = JSON.parse(xhrCharacters.responseText);
+
+        characters.forEach(char => {
+            const card = document.createElement("div");
+            card.classList.add("character-card");
+
+            card.innerHTML = `
+                <div class="character-photo">
+                    <img src="${char.photo}" alt="${char.name}">
+                </div>
+                <h3>${char.name}</h3>
+                <p>${char.info}</p>
+            `;
+            charactersContainer.appendChild(card);
+        });
+    } else {
+        console.error("Ошибка загрузки characters.json");
+    }
+};
+
+
+
+const xhrAny = new XMLHttpRequest();
+xhrAny.open("GET", "../data/any.json");
+xhrAny.setRequestHeader("Content-Type", "application/json");
+xhrAny.send();
+
+xhrAny.onload = () => {
+    if (xhrAny.status >= 200 && xhrAny.status < 300) {
+        const data = JSON.parse(xhrAny.responseText);
+        console.log("ANY JSON FILE:", data);
+    } else {
+        console.error("Ошибка загрузки any.json");
+    }
+};
